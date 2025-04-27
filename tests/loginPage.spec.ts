@@ -5,8 +5,8 @@ test.beforeEach(async ({ page, baseURL }) => {
   await page.goto(`${baseURL}`);
 });
 
-test.describe('Test Scenario #1: Login Test Suite', () =>{
-    test('TC_00: Log in Success Flow', async ({ page }) => {
+test.describe('Test Scenario #1: Login Test Suite', () => {
+    test('LOGIN_00: Log in Success Flow', async ({ page }) => {
         // ARRANGE
         const loginPage = new LoginPage(page);
 
@@ -21,7 +21,7 @@ test.describe('Test Scenario #1: Login Test Suite', () =>{
         expect(page.url()).toContain('/inventory.html');
     });
 
-    test('TC_01: Log in Sad Flow: Blank Form', async ({ page }) => {
+    test('LOGIN_01: Log in Sad Flow: Blank Form', async ({ page }) => {
         // ARRANGE
         const loginPage = new LoginPage(page);
 
@@ -33,7 +33,7 @@ test.describe('Test Scenario #1: Login Test Suite', () =>{
         expect(await loginPage.getErrorMessageText()).toBe("Epic sadface: Username is required");
     });
 
-    test('TC_02: Log in Sad Flow: Blank Password', async ({ page }) => {
+    test('LOGIN_02: Log in Sad Flow: Blank Password', async ({ page }) => {
         // ARRANGE
         const loginPage = new LoginPage(page);
 
@@ -49,7 +49,7 @@ test.describe('Test Scenario #1: Login Test Suite', () =>{
         expect(await loginPage.getErrorMessageText()).toBe("Epic sadface: Password is required");
     });
 
-    test('TC_03: Log in Sad Flow: Invalid Credentials', async ({ page }) => {
+    test('LOGIN_03: Log in Sad Flow: Invalid Credentials', async ({ page }) => {
         // ARRANGE
         const loginPage = new LoginPage(page);
 
